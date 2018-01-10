@@ -8,7 +8,11 @@
 
     <string name="login">L  O  G  I  N</string>
     <string name="createaccount">or create an account</string>
-    <string name="username">username</string>
+    <string name="email">email</string>
     <string name="password">password</string>
+    <string name="confirmpassword">confirm password</string>
     <string name="submit">submit</string>
+    <string name="title_activity_create_account">create an account</string>
+    <string name="title_activity_main">MainActivity</string>
+
 </resources>
