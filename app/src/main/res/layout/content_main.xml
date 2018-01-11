@@ -8,4 +8,68 @@
     tools:context="com.example.bao48.studyblank.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <TextView
+        android:id="@+id/createSet"
+        android:layout_width="318dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="serif"
+        android:text="@string/createset"
+        android:textSize="24sp"
+        android:typeface="serif"
+        android:background="@drawable/textlines"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="32dp"
+        android:paddingHorizontal="2dp"/>
+
+    <TextView
+        android:id="@+id/viewFolders"
+        android:layout_width="318dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/textlines"
+        android:fontFamily="serif"
+        android:paddingHorizontal="2dp"
+        android:text="@string/viewfolders"
+        android:textSize="24sp"
+        android:typeface="serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createSet"
+        android:layout_marginLeft="32dp" />
+
+    <TextView
+        android:id="@+id/viewSets"
+        android:layout_width="318dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="228dp"
+        android:background="@drawable/textlines"
+        android:fontFamily="serif"
+        android:paddingHorizontal="2dp"
+        android:text="@string/viewsets"
+        android:textSize="24sp"
+        android:typeface="serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="32dp" />
+
+    <TextView
+        android:id="@+id/viewStats"
+        android:layout_width="318dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="296dp"
+        android:background="@drawable/textlines"
+        android:fontFamily="serif"
+        android:paddingHorizontal="2dp"
+        android:text="@string/viewstats"
+        android:textSize="24sp"
+        android:typeface="serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="32dp" />
+
 </android.support.constraint.ConstraintLayout>

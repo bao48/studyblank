@@ -5,4 +5,5 @@
     <color name="colorPrimaryLight">#BDCB8B</color>
     <color name="colorAccent">#B2896C</color>
     <color name="colorAccentLight">#E5DDA4</color>
+    <color name="defaultBackground">#FAFAFA</color>
 </resources>
