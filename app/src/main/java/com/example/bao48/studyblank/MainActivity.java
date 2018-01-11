@@ -1,5 +1,6 @@
 package com.example.bao48.studyblank;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,6 +32,52 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        findViewById(R.id.createSet).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                goToMakeSets();
+            }
+        });
+
+        findViewById(R.id.viewFolders).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                goToFolders();
+            }
+        });
+
+        findViewById(R.id.viewSets).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                goToSets();
+            }
+        });
+
+        findViewById(R.id.viewStats).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                goToStats();
+            }
+        });
+    }
+
+    private void goToMakeSets() {
+        Intent intent = new Intent(this, MainActivity.class); // fix this
+        startActivity(intent);
+    }
+    private void goToFolders() {
+        Intent intent = new Intent(this, MainActivity.class); // fix this
+        startActivity(intent);
+    }
+    private void goToSets() {
+        Intent intent = new Intent(this, MainActivity.class); // fix this
+        startActivity(intent);
+    }
+    private void goToStats() {
+        Intent intent = new Intent(this, MainActivity.class); // fix this
+        startActivity(intent);
     }
 
     @Override
