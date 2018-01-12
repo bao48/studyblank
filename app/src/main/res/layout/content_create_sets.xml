@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.bao48.studyblank.CreateSets"
+    tools:showIn="@layout/app_bar_create_sets">
+
+    <Button
+        android:id="@+id/takePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="185dp"
+        android:background="@color/colorPrimaryLight"
+        android:fontFamily="serif"
+        android:minHeight="30dp"
+        android:paddingHorizontal="20dp"
+        android:text="@string/takePhoto"
+        android:textColor="#000"
+        android:textSize="10sp"
+        android:typeface="serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="136dp" />
+
+    <Button
+        android:id="@+id/getfromgallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="54dp"
+        android:background="@color/colorPrimaryLight"
+        android:fontFamily="serif"
+        android:minHeight="30dp"
+        android:paddingHorizontal="20dp"
+        android:text="@string/getFromGallery"
+        android:textColor="#000"
+        android:textSize="10sp"
+        android:typeface="serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takePhoto"
+        android:layout_marginLeft="123dp" />
+
+</android.support.constraint.ConstraintLayout>

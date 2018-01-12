@@ -18,5 +18,13 @@
     <string name="viewfolders">folders</string>
     <string name="viewsets">sets</string>
     <string name="viewstats">stats</string>
+    <string name="title_activity_create_sets">CreateSets</string>
+    <string name="title_activity_view_folders">ViewFolders</string>
+    <string name="title_activity_view_sets">ViewSets</string>
+    <string name="title_activity_view_stats">ViewStats</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="takePhoto">take a photo</string>
+    <string name="getFromGallery">get from gallery</string>
+    <string name="createfilefailed">The file was unable to be made. Please try again later.</string>
 
 </resources>
