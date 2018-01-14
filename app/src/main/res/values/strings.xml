@@ -26,5 +26,6 @@
     <string name="takePhoto">take a photo</string>
     <string name="getFromGallery">get from gallery</string>
     <string name="createfilefailed">The file was unable to be made. Please try again later.</string>
+    <string name="title_activity_document_retriever">DocumentRetriever</string>
 
 </resources>

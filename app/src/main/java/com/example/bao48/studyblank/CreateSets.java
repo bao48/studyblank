@@ -1,17 +1,28 @@
 package com.example.bao48.studyblank;
 
+import android.*;
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.ParcelFileDescriptor;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,10 +35,16 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static android.content.Intent.CATEGORY_OPENABLE;
 
 public class CreateSets extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,21 +55,13 @@ public class CreateSets extends AppCompatActivity
     private final String JPG_SUFFIX = ".jpg";
     private boolean CAMERA_PERMISSION = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_sets);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -68,10 +77,24 @@ public class CreateSets extends AppCompatActivity
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dispatchTakePictureIntent();
+                if (checkCameraHardware(getApplicationContext())) {
+                    dispatchTakePictureIntent();
+                }
             }
         });
 
+        Button getFromGalleryButton = (Button) findViewById(R.id.getfromgallery);
+        getFromGalleryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToDocumentRetriever();
+            }
+        });
+
+    }
+    private void goToDocumentRetriever() {
+        Intent intent = new Intent(this, DocumentRetriever.class);
+        startActivity(intent);
     }
 
 
@@ -95,8 +118,16 @@ public class CreateSets extends AppCompatActivity
                     photoFile);
             takeImgInt.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
             startActivityForResult(takeImgInt, REQUEST_TAKE_PHOTO);
+            galleryAddPic();
         }
+    }
 
+    private void galleryAddPic() {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        File f = new File(photoPath);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        this.sendBroadcast(mediaScanIntent);
     }
 
     private File createImageFile() throws IOException {
@@ -118,11 +149,15 @@ public class CreateSets extends AppCompatActivity
             } else {
                 // no camera feature
                 CAMERA_PERMISSION = false;
+                Toast.makeText(getApplicationContext(), "Please go to settings and allow StudyBlank to access your camera. Thanks.",
+                        Toast.LENGTH_SHORT).show();
             }
         }
 
         return CAMERA_PERMISSION;
     }
+
+
 
     @Override
     public void onBackPressed() {
